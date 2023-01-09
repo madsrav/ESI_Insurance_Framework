@@ -1,52 +1,168 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>SDET11_SRAVS</groupId>
-  <artifactId>SDET11_SRAVS</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-   <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.7.1</version>
-</dependency>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>SDET11_SRAVS</groupId>
+	<artifactId>SDET11_SRAVS</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M7</version>
+					<configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>OwnBroswertestng.xml</suiteXmlFile>
+						</suiteXmlFiles>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
-<!-- https://mvnrepository.com/artifact/org.testng/testng -->
-<dependency>
-    <groupId>org.testng</groupId>
-    <artifactId>testng</artifactId>
-    <version>7.7.0</version>
-</dependency>
+	<profiles>
+		<profile>
+			<id>Batch</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>3.0.0-M7</version>
+							<configuration>
+								<suiteXmlFiles>
+									<suiteXmlFile>Batch_Execution_testng.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
 
-<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi-ooxml</artifactId>
-    <version>5.2.3</version>
-</dependency>
+		<profile>
+			<id>Parallel</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>3.0.0-M7</version>
+							<configuration>
+								<suiteXmlFiles>
+									<suiteXmlFile>Distributed_Parallel_testng.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
 
-<!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
-<dependency>
-    <groupId>com.github.javafaker</groupId>
-    <artifactId>javafaker</artifactId>
-    <version>1.0.2</version>
-</dependency>
+		<profile>
+			<id>Group</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>3.0.0-M7</version>
+							<configuration>
+								<suiteXmlFiles>
+									<suiteXmlFile>Group_Execution_testng.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
 
-<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
-<dependency>
-    <groupId>com.googlecode.json-simple</groupId>
-    <artifactId>json-simple</artifactId>
-    <version>1.1.1</version>
-</dependency>
+		<profile>
+			<id>Smoke</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>3.0.0-M7</version>
+							<configuration>
+								<suiteXmlFiles>
+									<suiteXmlFile>Smoke_testng.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+		<profile>
+			<id>Regression</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>3.0.0-M7</version>
+							<configuration>
+								<suiteXmlFiles>
+									<suiteXmlFile>Regression_testng.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
 
-  </dependencies>
-  
-  <properties>
-  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  <maven.compiler.source>1.7</maven.compiler.source>
-  <maven.compiler.target>1.7</maven.compiler.target>
-  <aspectj.version>1.8.10</aspectj.version>
- </properties>
-  
-  
+	</profiles>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.7.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.7.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.2.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+	</dependencies>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<aspectj.version>1.8.10</aspectj.version>
+	</properties>
 </project>

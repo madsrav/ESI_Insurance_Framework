@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.insurance.esiInsurance.modules.Add_Edit_Delete_Payment_Test">
+        <methods>
+          <include name="closingBrowser"/>
+          <include name="editpayment"/>
+          <include name="launchingBrowser"/>
+          <include name="deletePayment"/>
+          <include name="login"/>
+          <include name="addPayment"/>
+          <include name="Logout"/>
+        </methods>
+      </class> <!-- com.insurance.esiInsurance.modules.Add_Edit_Delete_Payment_Test -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

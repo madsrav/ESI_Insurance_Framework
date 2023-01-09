@@ -3,11 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.insurance.esiInsurance.modules.TC_003_AddNewPaymentTest">
+      <class name="com.insurance.esiInsurance.modules.Add_Edit_Delete_Payment_Test">
         <methods>
-          <include name="addpayment"/>
+          <include name="closingBrowser"/>
+          <include name="editpayment"/>
+          <include name="launchingBrowser"/>
+          <include name="deletePayment"/>
+          <include name="login"/>
+          <include name="addPayment"/>
+          <include name="Logout"/>
         </methods>
-      </class> <!-- com.insurance.esiInsurance.modules.TC_003_AddNewPaymentTest -->
+      </class> <!-- com.insurance.esiInsurance.modules.Add_Edit_Delete_Payment_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
